@@ -6,7 +6,7 @@ import TarjetaUsuarios from '../components/TarjetaUsuario';
 const consulta = () => {
   return (
     <div id='consulta'>
-        <h1 id='h1Consulta'>Consulta de Registro (+FaunaDB)</h1>
+        <h1 id='h1Consulta'>Consulta de Registro (+CockroachDB)</h1>
         <TarjetaUsuarios/>
     </div>
   )

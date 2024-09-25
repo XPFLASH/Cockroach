@@ -1,48 +1,48 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import '../styles/tarjetausuario.css';
+import React, { useState, useEffect } from 'react';
+import '../styles/tarjetausuario.css'
 
-const TarjetaUsuarios = () => {
+const TarjetaUsuario = () => {
+  
   const [users, setUsers] = useState([]);
+ 
 
   useEffect(() => {
-    const getUsers = async () => {
+    const fetchUsers = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/users/users", {
-          cache: "no-store",
-        });
-
-        if (!res.ok) {
-          throw new Error("Failed");
+        const response = await fetch('http://localhost:5000/api/users');
+        if (response.ok) {
+          const data = await response.json();
+          setUsers(data);
+        } else {
+          
         }
-
-        const data = await res.json();
-        setUsers(data.data?.data || []);  // Accedemos a data.data para obtener los usuarios
       } catch (error) {
-        console.error("Error fetching users:", error);
-        setUsers([]);
+        console.error('Error al obtener los usuarios:', error);
+        
       }
     };
 
-    getUsers();
+    fetchUsers();
   }, []);
 
   return (
     <div>
       <h1 id="h1Tarjeta">Usuarios</h1>
       <div id="tarjetasContainer">
-        {users.map((u, index) => (  // Aquí pasamos el índice como segundo argumento
-        <div key={index}>
-            <div id="divTarjetaUsuarios">
-                <div><span>Nombre:</span> {u.name}</div>
-                <div><span>Correo:</span> {u.email}</div>
-                <div><span>Celular:</span> {u.phone}</div>
+      {users.map((user, index) => (
+            <div key={index} id="divTarjetaUsuarios">
+              <div><span>Nombre:</span> {user.name}</div>
+              <div><span>Correo:</span> {user.email}</div>
+              <div><span>Celular:</span> {user.phone}</div>
             </div>
-        </div>
-      ))}
+          ))
+        }
+
       </div>
     </div>
   );
 };
 
-export default TarjetaUsuarios;
+export default TarjetaUsuario;
+
+

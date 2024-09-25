@@ -15,7 +15,7 @@ const registro = () => {
   const addUser = async (e) =>{
     e.preventDefault()
 
-    const res = await fetch("http://localhost:5000/api/users/register", {
+    const res = await fetch("http://localhost:5000/api/register", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -52,7 +52,7 @@ const registro = () => {
   return (
     <div id='registro'>
       <section id='sectionForm'>
-      <h1 id='h1Registro'>Formulario de Registro (+FaunaDB)</h1>
+      <h1 id='h1Registro'>Formulario de Registro (+CockroachDB)</h1>
       </section>
         <form onSubmit={addUser}>
           <div>

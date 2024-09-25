@@ -1,18 +1,12 @@
-// routes/authRoutes.js
 import express from 'express';
-import { loginUser } from '../controllers/authController.js';
+import { loginUser, registerUser } from '../controllers/authController.js';
 
 const router = express.Router();
 
-router.post('/login', async (req, res) => {
-  const { email, password } = req.body;
+// Ruta para registrar un nuevo usuario
+router.post('/register', registerUser);
 
-  try {
-    const { token, user } = await loginUser(email, password);
-    res.status(200).json({ token, user });
-  } catch (error) {
-    res.status(401).json({ error: error.message });
-  }
-});
+// Ruta para iniciar sesión
+router.post('/login', loginUser);
 
 export default router;

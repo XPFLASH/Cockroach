@@ -1,8 +1,8 @@
 #loginPrincipal {
-    background-color: #3C4267;
+    border: 4px solid #82C6E2;
+    background-color: #461474;
     height: 97vh;
     width: 71vw;
-    border: 4px solid #29D3F2;
     border-radius: 15px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 20px;
@@ -52,7 +52,7 @@
   }
   
   #buttonLogin {
-    background-color: #2F81A1;
+    background-color: #FFC107;
     color: white;
     padding: 12px 0;
     border: none;
@@ -63,7 +63,7 @@
   }
   
   #buttonLogin:hover {
-    background-color: #11131E;
+    background-color: black;
   }
   
   #formLogin div {

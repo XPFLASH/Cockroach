@@ -10,7 +10,7 @@ const NavBar = () => {
   return (
     <div id='divPrincipal'>
         <div id='logoDash'>
-        <img src="/src/assets/faunadb.png" alt="Descripción de la imagen" />
+        <img src="/src/assets/cockroachdb.png" alt="Descripción de la imagen" />
 
         </div>
         <nav>

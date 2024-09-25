@@ -1,34 +1,12 @@
-// controllers/userController.js
+import { getAllUsers } from '../models/userModel.js';
 
-import { fql } from 'fauna';
-import client from '../models/faunaClient.js';
-
-export const addUser = async (userData) => {
-  const query = fql`
-    users.create({
-      name: ${userData.name},
-      age: ${userData.age},
-      email: ${userData.email},
-      password: ${userData.password},
-      phone: ${userData.phone},
-      country: ${userData.country}
-    })
-  `;
-  const result = await client.query(query)
-  return result;
-};
-
-export const getUsers = async () => {
-  const query = fql`
-    users.all() {
-      name,
-      age,
-      email,
-      password,
-      phone,
-      country
-    }
-  `;
-  const result = await client.query(query)
-  return result;
+// Controlador para obtener todos los usuarios
+export const getUsers = async (req, res) => {
+  try {
+    const users = await getAllUsers();
+    res.status(200).json(users);
+  } catch (err) {
+    console.error('Error al obtener los usuarios:', err);
+    res.status(500).json({ message: 'Error al obtener los usuarios' });
+  }
 };
